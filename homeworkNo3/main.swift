@@ -27,11 +27,11 @@ enum TrunkState {
 struct SportCar {
     let brand: String
     let model: String
-    let wheels: Int
+    var wheels: Int
     let yearOfManufacture: Int
     let trunkVolume: Int
     let engineState: EngineState
-    let windowState: WindowState
+    var windowState: WindowState
     let trunkState: TrunkState
     
     var colors: Color {
@@ -52,17 +52,17 @@ struct SportCar {
 struct TruckCar {
     let brand: String
     let model: String
-    let colors: Color
+    var colors: Color
     let wheels: Int
     let yearOfManufacture: Int
     let trunkVolume: Int
-    let engineState: EngineState
+    var engineState: EngineState
     var windowState: WindowState
     var trunkState: TrunkState {
         didSet {
-            print("После стала \(trunkState)")
+            print("Конечная загруженность грузовика \(trunkState)")
         } willSet {
-            print("Изначально машина была \(trunkState)")
+            print("Начальная загруженность грузовика \(trunkState)")
         }
     }
     
@@ -78,7 +78,18 @@ struct TruckCar {
 var car1 = SportCar(brand: "Audi", model: "A6", wheels: 19, yearOfManufacture: 2015, trunkVolume: 450, engineState: .stop, windowState: .close, trunkState: .empty, colors: .white)
 var truck1 = TruckCar(brand: "MAN", model: "TGS 6x4", colors: .white, wheels: 24, yearOfManufacture: 2018, trunkVolume: 150_000, engineState: .start, windowState: .open, trunkState: .half)
 
+
+car1.windowState = .open
+car1.wheels = 21
+truck1.colors = .silver
+truck1.engineState = .stop
+
+print("Первая машина: \(car1.brand), \(car1.model), размер колес: \(car1.wheels), год выпуска: \(car1.yearOfManufacture), объем багажника: \(car1.trunkVolume), двигатель: \(car1.engineState), Окна: \(car1.windowState), Состояние багажника: \(car1.trunkState), цвет: \(car1.colors)")
+print("Первый грузовик: \(truck1.brand), \(truck1.model), размер колес: \(truck1.wheels), год выпуска: \(truck1.yearOfManufacture), объем кузова: \(truck1.trunkVolume), двигатель: \(truck1.engineState), Окна: \(truck1.windowState), Загруженность: \(truck1.trunkState), цвет: \(truck1.colors)")
+
+
 car1.changeColor(color: .red)
 truck1.changeTrunk(trunk: .full)
+
 
 
