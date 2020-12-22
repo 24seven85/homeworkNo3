@@ -7,5 +7,21 @@
 
 import Foundation
 
-print("Hello, World!")
+enum Color {
+    case red, green, white, blue, silver
+}
 
+struct SportCar {
+    let brand: String
+    let model: String
+    let color: Color
+}
+
+
+
+
+struct TruckCar {
+    let brand: String
+    let model: String
+    let color: Color
+}
