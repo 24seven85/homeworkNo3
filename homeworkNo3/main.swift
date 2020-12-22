@@ -75,5 +75,10 @@ struct TruckCar {
     
 }
 
+var car1 = SportCar(brand: "Audi", model: "A6", wheels: 19, yearOfManufacture: 2015, trunkVolume: 450, engineState: .stop, windowState: .close, trunkState: .empty, colors: .white)
+var truck1 = TruckCar(brand: "MAN", model: "TGS 6x4", colors: .white, wheels: 24, yearOfManufacture: 2018, trunkVolume: 150_000, engineState: .start, windowState: .open, trunkState: .half)
+
+car1.changeColor(color: .red)
+truck1.changeTrunk(trunk: .full)
 
 
